@@ -1,17 +1,25 @@
-export type Point = {
-  x: number;
-  y: number;
+const isMultipleOf = (divider: number, n: number): boolean => {
+  return n % divider === 0;
 };
 
-const computeOneDimensionDistance = (a: number, b: number) => {
-  return Math.abs(b - a);
+export const replace = (n: number): string => {
+  let result = "";
+
+  if (isMultipleOf(3, n)) {
+    result += "Fizz";
+  }
+
+  if (isMultipleOf(5, n)) {
+    result += "Buzz";
+  }
+
+  return result || n.toString();
 };
 
-const computeManhattanDistance = (a: Point, b: Point): number => {
-  return (
-    computeOneDimensionDistance(b.x, a.x) + //
-    computeOneDimensionDistance(b.y, a.y)
-  );
+const range = (n: number): number[] => {
+  return [...new Array(n)].map((_, index) => index + 1);
 };
 
-export default computeManhattanDistance;
+export const fizzBuzz = (n: number): string[] => {
+  return range(n).map(replace);
+};
