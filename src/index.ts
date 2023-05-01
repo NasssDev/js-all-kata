@@ -1,25 +1,41 @@
-const isMultipleOf = (divider: number, n: number): boolean => {
-  return n % divider === 0;
+export type Player = "X" | "O";
+
+export type Cell = "_" | Player;
+
+export type Grid = [[Cell, Cell, Cell],[Cell, Cell, Cell],[Cell, Cell, Cell]];
+
+export type Coordinates = {
+  x: 0 | 1 | 2;
+  y: 0 | 1 | 2;
 };
 
-export const replace = (n: number): string => {
-  let result = "";
+export type Action = {
+  player: Player;
+  coordinates: Coordinates;
+}
 
-  if (isMultipleOf(3, n)) {
-    result += "Fizz";
+export type Game = {
+  grid: Grid;
+  nextPlayer: Player;
+};
+
+export const computeNextGame = (game: Game, action : Action): Game => {
+
+  if (action.player === "O") {
+    game.grid[action.coordinates.y][action.coordinates.x] = "O";
+    return {
+      grid: game.grid,
+      nextPlayer: "X",
+    };
+  } else {
+
   }
-
-  if (isMultipleOf(5, n)) {
-    result += "Buzz";
-  }
-
-  return result || n.toString();
-};
-
-const range = (n: number): number[] => {
-  return [...new Array(n)].map((_, index) => index + 1);
-};
-
-export const fizzBuzz = (n: number): string[] => {
-  return range(n).map(replace);
+  return {
+    grid: [
+      ["X", "_", "_"],
+      ["_", "_", "_"],
+      ["_", "_", "_"],
+    ],
+    nextPlayer: "O",
+  };
 };
