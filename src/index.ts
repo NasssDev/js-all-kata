@@ -20,22 +20,10 @@ export type Game = {
 };
 
 export const computeNextGame = (game: Game, action : Action): Game => {
-
-  if (action.player === "O") {
-    game.grid[action.coordinates.y][action.coordinates.x] = "O";
+  action.player === "O" ? game.grid[action.coordinates.y][action.coordinates.x] = "O" : game.grid[action.coordinates.y][action.coordinates.x] = "X";
+  action.player === "O" ? game.nextPlayer = "X" : game.nextPlayer = "O"
     return {
       grid: game.grid,
-      nextPlayer: "X",
+      nextPlayer: game.nextPlayer,
     };
-  } else {
-
-  }
-  return {
-    grid: [
-      ["X", "_", "_"],
-      ["_", "_", "_"],
-      ["_", "_", "_"],
-    ],
-    nextPlayer: "O",
-  };
 };
