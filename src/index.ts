@@ -27,3 +27,8 @@ export const computeNextGame = (game: Game, action : Action): Game => {
       nextPlayer: game.nextPlayer,
     };
 };
+
+export const checkIfWinFromLeftToRight = (grid : Grid, currentPlayer : Player) : string => {
+  let winFromLeftToRight = grid[0].every(cell => cell === currentPlayer) || grid[1].every(cell => cell === currentPlayer) || grid[2].every(cell => cell === currentPlayer)
+  return winFromLeftToRight ? "winner "+currentPlayer : "no win yet"
+}
