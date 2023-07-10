@@ -1,6 +1,13 @@
-# js-kata-starter
+# js-all-kata
 
-Starter project for kata (Node, TypeScript, Jest)
+Project where each branch is a different kata made with Node, TypeScript and Jest
+
+## Kata done for the moment
+
+- [Manhattan](https://github.com/NasssDev/js-all-kata/tree/manhattan)
+- [FizzBuzz](https://github.com/NasssDev/js-all-kata/tree/fizzBuzz)
+- [TicTacToe](https://github.com/NasssDev/js-all-kata/tree/tictactoe)
+- [Refactoring](https://github.com/NasssDev/js-all-kata/tree/refactoring) + Golden master
 
 ## Getting started
 
